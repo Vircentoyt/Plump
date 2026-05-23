@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plump</title>
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Plump</h1>
+      <p id="round-info" class="round-info">Runda 1 av 10 · 10 kort</p>
+      <p id="message" class="message">Klicka på "Ny omgång" för att börja spela.</p>
+    </header>
+
+    <main class="table">
+      <section class="center">
+        <div class="opponents">
+          <div class="player-area player-area--top" id="player-1">
+            <div class="player-title-row">
+              <div class="player-avatar" id="avatar-1" aria-hidden="true"></div>
+              <h2 class="player-name" id="player-name-1">AI Anna</h2>
+            </div>
+            <p class="player-meta" id="meta-1"></p>
+            <div class="hand hand--ai" id="hand-1"></div>
+          </div>
+
+          <div class="player-area player-area--top" id="player-2">
+            <div class="player-title-row">
+              <div class="player-avatar" id="avatar-2" aria-hidden="true"></div>
+              <h2 class="player-name" id="player-name-2">AI Erik</h2>
+            </div>
+            <p class="player-meta" id="meta-2"></p>
+            <div class="hand hand--ai" id="hand-2"></div>
+          </div>
+        </div>
+
+        <div class="trick-area">
+          <div class="trick-slots">
+            <div class="trick-slot" id="trick-1"></div>
+            <div class="trick-slot" id="trick-0"></div>
+            <div class="trick-slot" id="trick-2"></div>
+          </div>
+        </div>
+
+        <div id="bid-panel" class="bid-panel hidden">
+          <p class="bid-label">Hur många stick tror du att du tar?</p>
+          <div id="bid-buttons" class="bid-buttons"></div>
+        </div>
+
+        <div class="player-area player-area--bottom" id="player-0">
+          <div class="player-header-row">
+            <div>
+              <h2 class="player-name">Du</h2>
+              <p class="player-meta" id="meta-0"></p>
+            </div>
+            <button id="laser-btn" class="laser-btn hidden" type="button" aria-pressed="false">
+              ⚡ Laser
+            </button>
+          </div>
+          <div class="hand hand--human" id="hand-0"></div>
+        </div>
+      </section>
+
+      <aside class="sidebar-right">
+        <div class="scoreboard">
+          <h2 class="scoreboard-title">Poäng</h2>
+          <div class="scoreboard-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Spelare</th>
+                  <th>P</th>
+                  <th>Pl</th>
+                  <th>Bud</th>
+                  <th>St</th>
+                  <th class="scoreboard-laser-col hidden" id="laser-col-header">⚡</th>
+                </tr>
+              </thead>
+              <tbody id="score-body"></tbody>
+            </table>
+          </div>
+          <div class="scoreboard-footer">
+            <button
+              id="settings-btn"
+              class="settings-btn"
+              type="button"
+              aria-label="Inställningar"
+              aria-expanded="false"
+              aria-controls="settings-panel"
+            >
+              <svg class="settings-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7Zm8.94-3.5a7.96 7.96 0 0 0-.12-1l2.11-1.64-2-3.46-2.49 1a8.08 8.08 0 0 0-1.73-1l-.38-2.65H14.9l-.38 2.65a8.08 8.08 0 0 0-1.73 1l-2.49-1-2 3.46L9.18 11a7.96 7.96 0 0 0-.12 1c0 .34.04.67.12 1l-2.11 1.64 2 3.46 2.49-1a8.08 8.08 0 0 0 1.73 1l.38 2.65h4.02l.38-2.65a8.08 8.08 0 0 0 1.73-1l2.49 1 2-3.46L20.82 13c.08-.33.12-.66.12-1Z"/>
+              </svg>
+            </button>
+          </div>
+          <div id="settings-panel" class="settings-panel hidden" role="dialog" aria-label="Temainställningar">
+            <p class="settings-panel-title">Tema</p>
+            <div id="theme-options" class="theme-options"></div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="game-actions">
+      <button id="new-game-btn" class="btn btn-primary">Ny omgång</button>
+    </footer>
+
+    <div id="laser-beam" class="laser-beam hidden" aria-hidden="true"></div>
+
+    <div id="overlay" class="overlay hidden">
+      <div class="overlay-card">
+        <h2 id="overlay-title">Slutresultat</h2>
+        <p id="overlay-text"></p>
+        <button id="overlay-btn" class="btn btn-primary">Spela igen</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/game.js"></script>
+</body>
+</html>
